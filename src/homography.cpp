@@ -18,10 +18,8 @@ Homography::Homography(std::vector<cv::Point2f> srcPoints, std::vector<cv::Point
 	}
 }
 
-Homography::~Homography() {
-	delete(&srcPoints);
-	delete(&dstPoints);
-}
+Homography::~Homography() 
+{ ; }
 
 cv::Mat Homography::calcHomography() {
 
