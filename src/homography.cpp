@@ -1,10 +1,3 @@
-/*
- * homography.cpp
- *
- *  Created on: Feb 13, 2013
- *      Author: dodo
- */
-
 #include "homography.hpp"
 
 Homography::Homography(std::vector<cv::Point2f> srcPoints, std::vector<cv::Point2f> dstPoints) {
@@ -17,9 +10,6 @@ Homography::Homography(std::vector<cv::Point2f> srcPoints, std::vector<cv::Point
 		this->dstPoints.push_back(*itPts);
 	}
 }
-
-Homography::~Homography() 
-{ ; }
 
 cv::Mat Homography::calcHomography() {
 
