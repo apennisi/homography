@@ -1,10 +1,3 @@
-/*
- * homography.hpp
- *
- *  Created on: Feb 13, 2013
- *      Author: dodo
- */
-
 #ifndef HOMOGRAPHY_HPP_
 #define HOMOGRAPHY_HPP_
 
@@ -25,7 +18,6 @@ private:
 
 public:
 	Homography(std::vector<cv::Point2f> srcPoints, std::vector<cv::Point2f> dstPoints);
-	~Homography();
 	cv::Mat calcHomography();
 	void draw(const cv::Mat& srcImage, const cv::Mat& dstImage, const cv::Mat& H);
 private:
