@@ -122,7 +122,7 @@ void Homography::draw(const cv::Mat& srcImage, const cv::Mat& dstImage, const cv
 			s.assign(out.str());
 			int s_size = s.size();
 			cv::putText(reprojectionImage, s, cv::Point2f(x+5,y-5),
-						CV_FONT_HERSHEY_SIMPLEX, 0.6, CV_RGB(0, 0, 255));
+						cv::FONT_HERSHEY_SIMPLEX, 0.6, CV_RGB(0, 0, 255));
 		}
 	}
 

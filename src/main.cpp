@@ -10,13 +10,13 @@ cv::Mat rgb;
 cv::Mat map;
 
 void mouseHandlerRobot(int event, int x, int y, int flags, void *param) {
-    if(event == CV_EVENT_LBUTTONDOWN) {
+    if(event == cv::EVENT_LBUTTONDOWN) {
         cv::circle(map, cv::Point2f(x, y), 3, cv::Scalar(0, 0, 255), -1);
         mapPoints.push_back(cv::Point2f(x, y));
         cv::imshow("map", map);
     }
 
-    if(event == CV_EVENT_RBUTTONDOWN) {
+    if(event == cv::EVENT_RBUTTONDOWN) {
         if(mapPoints.size() == rgbPoints.size()) {
             Homography h(rgbPoints, mapPoints);
             cv::Mat H = h.calcHomography();
@@ -29,13 +29,13 @@ void mouseHandlerRobot(int event, int x, int y, int flags, void *param) {
 }
 
 void mouseHandlerRGB(int event, int x, int y, int flags, void *param) {
-    if(event == CV_EVENT_LBUTTONDOWN) {
+    if(event == cv::EVENT_LBUTTONDOWN) {
         cv::circle(rgb, cv::Point2f(x, y), 3, cv::Scalar(0, 0, 255), -1);
         rgbPoints.push_back(cv::Point2f(x, y));
         cv::imshow("rgb", rgb);
     }
 
-    if(event == CV_EVENT_RBUTTONDOWN) {
+    if(event == cv::EVENT_RBUTTONDOWN) {
         if(mapPoints.size() == rgbPoints.size()) {
             Homography h(rgbPoints, mapPoints);
             cv::Mat H = h.calcHomography();
@@ -60,8 +60,8 @@ int main(int argc, char **argv) {
     map = cv::imread(argv[2]);
 
 
-    cv::namedWindow("map", CV_WINDOW_AUTOSIZE);
-    cv::namedWindow("rgb", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("map", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("rgb", cv::WINDOW_AUTOSIZE);
 
     cv::setMouseCallback("map", &mouseHandlerRobot, NULL);
     cv::setMouseCallback("rgb", &mouseHandlerRGB, NULL);
